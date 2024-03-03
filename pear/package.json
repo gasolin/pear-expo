@@ -1,6 +1,6 @@
 {
   "name": "fangzai",
-  "main": "index.html",
+  "main": "dist/index.html",
   "type": "module",
   "pear": {
     "name": "fangzai",
