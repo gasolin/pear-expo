@@ -10,7 +10,7 @@ pear/
 1. cd app && npx expo start
 1. 按 w
 
-TOOD 加入 PWA https://docs.expo.dev/guides/progressive-web-apps/
+FYR 加入 PWA https://docs.expo.dev/guides/progressive-web-apps/
 
 ## App
 
@@ -21,10 +21,9 @@ TOOD 加入 PWA https://docs.expo.dev/guides/progressive-web-apps/
 
 從 app/ 匯出成網站並複製到 pear/dist 資料夾
 
-1. cd app
-1. npx expo export -p web
-1. cp -r dist ../pear/dist
-1. cd ..
+1. cd app && npx expo export -p web
+1. cp -r app/dist pear/dist
+1. sed -i "s@/_expo@./_expo@g" pear/dist/index.html
 
 開啟 pear desktop
 
