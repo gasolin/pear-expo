@@ -4,7 +4,7 @@ React Native web (Expo) setup for pear desktop
 
 ## structure
 
-- app/ - [expo](https://docs.expo.dev/) folder
+- app/ - [expo](https://docs.expo.dev/) folder, host the main code and can export web UI as `dist/` folder for pear use
 - pear/ - [pear](https://docs.pears.com/guides/starting-a-pear-desktop-project) folder
 
 ## Run as Web
