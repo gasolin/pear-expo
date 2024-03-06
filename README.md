@@ -1,30 +1,32 @@
-fangzai 防災 - 台灣災前災時應變 APP
+# Pear-Expo
 
-## 目錄
+React Native web (Expo) setup for pear desktop
 
-app/
-pear/
+## structure
 
-## 網頁
+- app/ - [expo](https://docs.expo.dev/) folder
+- pear/ - [pear](https://docs.pears.com/guides/starting-a-pear-desktop-project) folder
 
-1. cd app && npx expo start
-1. 按 w
-
-FYR 加入 PWA https://docs.expo.dev/guides/progressive-web-apps/
-
-## App
+## Run as Web
 
 1. cd app && npx expo start
-1. 按 a (Android) 或 i (iOS)
+1. press `w`
 
-## 桌面
+FYR add PWA https://docs.expo.dev/guides/progressive-web-apps/
 
-從 app/ 匯出成網站並複製到 pear/dist 資料夾
+## Run as Android or iOS App
+
+1. cd app && npx expo start
+1. press `a` (Android) or `i` (iOS)
+
+## Run as Pear Desktop
+
+Will export web UI from `app/` to `pear/dist`. Also need change the default import path in `pear/dist/index.html`
 
 1. cd app && npx expo export -p web
 1. cp -r app/dist pear/dist
 1. sed -i "s@/_expo@./_expo@g" pear/dist/index.html
 
-開啟 pear desktop
+Then open the pear desktop with command:
 
 1. cd pear && pear dev
