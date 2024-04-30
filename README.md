@@ -2,6 +2,8 @@
 
 React Native web (Expo) setup for pear desktop
 
+> Note in current stage its not include hypercore support and no android/ios integration.
+
 ## structure
 
 - app/ - [expo](https://docs.expo.dev/) folder, host the main code and can export web UI as `dist/` folder for pear use
