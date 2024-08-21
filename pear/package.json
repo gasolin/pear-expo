@@ -3,7 +3,7 @@
   "main": "dist/index.html",
   "type": "module",
   "pear": {
-    "name": "fangzai",
+    "name": "demo",
     "type": "desktop",
     "gui": {
       "backgroundColor": "#1F2430",
