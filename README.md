@@ -13,19 +13,19 @@ React Native web (Expo) setup for pear desktop
 
 1. `cd app && yarn` (or `cd app && npm install`)
 
-## Run as Web
+## Run as Web 🕸️
 
 1. cd app && npx expo start
 1. press `w`
 
 FYR add PWA https://docs.expo.dev/guides/progressive-web-apps/
 
-## Run as Android or iOS App
+## Run as Android or iOS App 📱
 
 1. cd app && npx expo start
 1. press `a` (Android) or `i` (iOS)
 
-## Run as Pear Desktop
+## Run as Pear Desktop App 💻
 
 Firstly need export web UI in `app/`:
 
@@ -52,5 +52,7 @@ cd pear && pear dev
 ```
 
 Then you can use react-native UI with pear desktop
+
+## What's next 🛤️
 
 Can follow [Making a Pear Desktop Application](https://docs.pears.com/guides/making-a-pear-desktop-app) to continue the journey.
