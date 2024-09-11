@@ -7,25 +7,32 @@ React Native web (Expo) setup for pear desktop
 ## structure
 
 - app/ - [expo](https://docs.expo.dev/) folder, host the main code and can export web UI as `dist/` folder for pear use
+  - [App.js](app/App.js) - entrypoint of React Native UI
+  - [worklet](app/worklet) - code for bare runtime (via [https://github.com/holepunchto/react-native-bare-kit](react-native-bare-kit))
+  - src/hook/[useWorklet](app/src/hook/useWorklet.js) - react hook to access [https://github.com/holepunchto/react-native-bare-kit](react-native-bare-kit) APIs
 - pear/ - [pear](https://docs.pears.com/guides/starting-a-pear-desktop-project) folder
 
 ## Setup
 
 1. `cd app && yarn` (or `cd app && npm install`)
 
-## Run as Web 🕸️
+## Run on Web 🕸️
 
 1. cd app && npx expo start
 1. press `w`
 
-FYR add PWA https://docs.expo.dev/guides/progressive-web-apps/
+> [!Note]
+> `worklet` related code might not work
 
-## Run as Android or iOS App 📱
+> [!Note]
+> Can turn the app as [progressive web app](https://docs.expo.dev/guides/progressive-web-apps/) (PWA) for more advanced usage
+
+## Run on Android or iOS App 📱
 
 1. cd app && npx expo start
 1. press `a` (Android) or `i` (iOS)
 
-## Run as Pear Desktop App 💻
+## Run on Pear Desktop App 💻
 
 Firstly need export web UI in `app/`:
 
