@@ -3,16 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from'react';
 
 import useWorklet from './src/hook/useWorklet';
-
-const BARE_BUNDLE = `
-  const rpc = new BareKit.RPC((req) => {
-    if (req.command === 'ping') {
-      console.log(req.data.toString())
-
-      req.reply('Hello from Bare!')
-    }
-  })
-`
+import BARE_BUNDLE, { API_PING, API_REVERSE } from './worklet';
 
 export default function App() {
   const [worklet, rpc] = useWorklet()
@@ -22,15 +13,17 @@ export default function App() {
     if (!worklet || !rpc) return
     worklet.start('/bareend.js', BARE_BUNDLE)
 
-    const req = rpc.request('ping')
+    const req = rpc.request(API_PING)
+    // const req = rpc.request(API_REVERSE)
 
-    req.send('Hello from React Native!')
+    req.send('Hello from RN UI!')
     req.reply('utf8').then((res) => setReponse(res))
   }, [worklet, rpc])
 
   return (
     <View style={styles.container}>
       <Text>Open up app/App.js to start working on your app!</Text>
+      <Text>Open worklet/app.js to start working on bare code.</Text>
       <Text>{response}</Text>
       <StatusBar style="auto" />
     </View>
