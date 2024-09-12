@@ -5,14 +5,13 @@ const BARE_BUNDLE = `
   const rpc = new BareKit.RPC((req) => {
     const text = req.data.toString()
     switch(req.command) {
-      case '${API_PING}':
-        console.log(text)
-        req.reply('Hello from Bare!')
-        break
       case '${API_REVERSE}':
         const result = getTranslation(text)
         req.reply(result)
         break
+      case '${API_PING}':
+      default:
+        req.reply('Hello from Bare!')
     }
   })
 `
