@@ -1,41 +1,60 @@
-import { useState, useEffect } from 'react';
-import { Worklet } from 'react-native-bare-kit';
+import { useCallback, useState, useEffect } from 'react'
+import { Worklet } from 'react-native-bare-kit'
 
 const noReply = () => { /* No reply */ }
 
 const useWorklet = (callback = noReply) => {
-  const [worklet, setWorklet] = useState(null);
+  const [isWorkletReady, setWorkletReady] = useState(false)
+  const [worklet, setWorklet] = useState(null)
   const [rpc, setRPC] = useState(null);
 
-  useEffect(() => {
+  const initWorklet = useCallback(() => {
     try {
       if (!worklet) {
         const newWorklet = new Worklet()
-        setWorklet(newWorklet);
+        setWorklet(newWorklet)
+        return newWorklet
       }
+      return worklet
     } catch (error) {
-      console.error('Error initializing Worklet:', error);
+      console.error('Error initializing Worklet:', error)
+      return null;
     }
+  }, [worklet])
 
+  const initRPC = useCallback((currentWorklet) => {
+    if (!currentWorklet) return null
     try {
-      if (worklet && !rpc) {
-        const newRPC = new worklet.RPC(callback);
-        setRPC(newRPC);
+      if (!rpc) {
+        const newRPC = new currentWorklet.RPC(callback)
+        setRPC(newRPC)
+        return newRPC
       }
+      return rpc
     } catch (error) {
-      console.error('Error initializing RPC:', error);
+      console.error('Error initializing RPC:', error)
+      return null
+    }
+  }, [callback, rpc])
+
+  useEffect(() => {
+    let isMounted = true
+    const currentWorklet = initWorklet()
+    const currentRPC = initRPC(currentWorklet)
+
+    if (isMounted && worklet && rpc) {
+      setWorkletReady(true)
     }
 
     return () => {
+      isMounted = false
       if (rpc) {
         // Clean up the RPC instance if necessary
-        // This depends on the Worklet.RPC API, which isn't fully clear from the provided code
-        // You might need to add a cleanup method if required
       }
     };
-  }, [worklet, rpc]);
+  }, [initWorklet, initRPC, worklet, rpc]);
 
-  return [worklet, rpc];
+  return [isWorkletReady, worklet, rpc];
 };
 
 export default useWorklet;

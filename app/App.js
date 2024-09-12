@@ -6,11 +6,11 @@ import useWorklet from './src/hook/useWorklet';
 import BARE_BUNDLE, { API_PING, API_REVERSE } from './worklet';
 
 export default function App() {
-  const [worklet, rpc] = useWorklet()
+  const [isWorkletReady, worklet, rpc] = useWorklet()
   const [response, setReponse] = useState(null)
 
   useEffect(() => {
-    if (!worklet || !rpc) return
+    if (isWorkletReady) return
     worklet.start('/bareend.js', BARE_BUNDLE)
 
     const req = rpc.request(API_PING)
@@ -18,7 +18,7 @@ export default function App() {
 
     req.send('Hello from RN UI!')
     req.reply('utf8').then((res) => setReponse(res))
-  }, [worklet, rpc])
+  }, [isWorkletReady])
 
   return (
     <View style={styles.container}>
