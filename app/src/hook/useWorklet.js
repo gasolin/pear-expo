@@ -4,7 +4,6 @@ import { Worklet } from 'react-native-bare-kit'
 const noReply = () => { /* No reply */ }
 
 const useWorklet = (callback = noReply) => {
-  const [isWorkletReady, setWorkletReady] = useState(false)
   const [worklet, setWorklet] = useState(null)
   const [rpc, setRPC] = useState(null);
 
@@ -38,23 +37,17 @@ const useWorklet = (callback = noReply) => {
   }, [callback, rpc])
 
   useEffect(() => {
-    let isMounted = true
     const currentWorklet = initWorklet()
-    const currentRPC = initRPC(currentWorklet)
-
-    if (isMounted && worklet && rpc) {
-      setWorkletReady(true)
-    }
+    initRPC(currentWorklet)
 
     return () => {
-      isMounted = false
       if (rpc) {
         // Clean up the RPC instance if necessary
       }
     };
-  }, [initWorklet, initRPC, worklet, rpc]);
+  }, [initWorklet, initRPC, rpc]);
 
-  return [isWorkletReady, worklet, rpc];
+  return [worklet, rpc];
 };
 
 export default useWorklet;
