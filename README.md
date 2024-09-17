@@ -9,6 +9,7 @@ React Native web (Expo) setup for pear desktop
 - app/ - [expo](https://docs.expo.dev/) folder, host the main code and can export web UI as `dist/` folder for pear use
   - [App.js](app/App.js) - entrypoint of React Native UI
   - [worklet](app/worklet) - code for bare runtime (via [https://github.com/holepunchto/react-native-bare-kit](react-native-bare-kit))
+    - app.cjs - bare code written with Common JS (Node) format
   - src/hook/[useWorklet](app/src/hook/useWorklet.js) - react hook to access [https://github.com/holepunchto/react-native-bare-kit](react-native-bare-kit) APIs
 - pear/ - [pear](https://docs.pears.com/guides/starting-a-pear-desktop-project) folder
 
