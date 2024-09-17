@@ -4,9 +4,11 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web"
+    "bundle": "cd worklet && bare-dev bundle --out app.bundle.js app.cjs && cd ..",
+    "android": "npm run bundle && expo run:android",
+    "ios": "npm run bundle && expo run:ios",
+    "web": "expo start --web",
+    "barelog": "adb logcat '*:S bare:*'"
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
