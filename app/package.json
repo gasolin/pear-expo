@@ -4,7 +4,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "bundle": "./script/install_addon.js && ./script/bundle_worklet.js",
+    "bundle": "./script/bundle_worklet.js && ./script/install_addon.js",
     "android": "npm run bundle && expo run:android",
     "ios": "npm run bundle && expo run:ios",
     "web": "expo start --web",
