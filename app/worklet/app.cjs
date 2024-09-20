@@ -1,5 +1,6 @@
 /* global Bare, BareKit */
 const { API_PING, API_REVERSE } = require('./api2')
+const BareAddon = require('bare-addon')
 
 Bare
   .on('suspend', () => console.log('suspended'))
@@ -17,7 +18,7 @@ const rpc = new BareKit.RPC((req) => {
       break
     case API_PING:
     default:
-      console.log(text)
+      console.log(BareAddon.hello())
       req.reply('Pong from Bare')
   }
 })
