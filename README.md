@@ -17,6 +17,13 @@ React Native web (Expo) setup for pear desktop
 
 1. `cd app && yarn` (or `cd app && npm install`)
 
+## Run on Android or iOS App 📱
+
+1. cd app && npx expo start
+1. press `a` (Android) or `i` (iOS)
+
+----
+
 ## Run on Web 🕸️
 
 1. cd app && npx expo start
@@ -28,12 +35,14 @@ React Native web (Expo) setup for pear desktop
 > [!Note]
 > Can turn the app as [progressive web app](https://docs.expo.dev/guides/progressive-web-apps/) (PWA) for more advanced usage
 
-## Run on Android or iOS App 📱
-
-1. cd app && npx expo start
-1. press `a` (Android) or `i` (iOS)
+----
 
 ## Run on Pear Desktop App 💻
+
+pear-expo export the web code (via react-native-web) to run in Pear Desktop App (which is an Electron-like environment)
+
+> [!Note]
+> `worklet` related code might not work
 
 Firstly need export web UI in `app/`:
 
