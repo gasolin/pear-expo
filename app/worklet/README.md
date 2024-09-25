@@ -1,5 +1,4 @@
-bare-addon-1.0.0.tgz is compiled from [bare-addon](https://github.com/holepunchto/bare-addon) sample project.
-
+## Pack addon
 
 Can follow below commands to pack for android addon
 
