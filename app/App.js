@@ -3,18 +3,16 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useCallback, useEffect, useState } from'react';
 
 import useWorklet from './src/hook/useWorklet';
-import { API_PING, API_REVERSE } from './worklet/api';
+import { getBackend } from './src/lib/rpc';
 
 export default function App() {
   const [worklet, rpc] = useWorklet()
   const [response, setReponse] = useState(null)
 
   const handleAction = useCallback(() => {
-    if (!rpc) return
-    const req = rpc.request(API_PING)
-    // const req = rpc.request(API_REVERSE)
-    req.send('Hello from RN UI!')
-    req.reply('utf8').then((res) => setReponse(res))
+    const backend = getBackend(rpc)
+    backend.ping(setReponse)
+    // backend.reverse(setReponse)
   }, [rpc])
 
   useEffect(() => {
