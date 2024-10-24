@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState } from'react';
 
 import useWorklet from './src/hook/useWorklet';
 import { API_PING, API_REVERSE } from './worklet/api';
-import BARE_BUNDLE from './worklet/app.bundle';
 
 export default function App() {
   const [worklet, rpc] = useWorklet()
@@ -20,7 +19,7 @@ export default function App() {
 
   useEffect(() => {
     if (!worklet) return
-    worklet.start('/app.bundle', BARE_BUNDLE)
+    worklet.start('/app.bundle', require('./worklet/app.bundle'))
   }, [worklet])
 
   return (
