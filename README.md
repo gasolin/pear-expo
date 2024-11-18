@@ -2,7 +2,9 @@
 
 React Native web (Expo) setup for pear desktop
 
-> Note in current stage its not include hypercore support and no android/ios integration.
+> ![Note]
+> in current stage its not include hypercore related example
+> android/ios integration through react-native-bare-kit
 
 ## structure
 
@@ -15,18 +17,22 @@ React Native web (Expo) setup for pear desktop
 
 ## Run on Android or iOS App 📱
 
-1. cd app && npx expo start
+(Same as expo)
+
+1. from root, run `cd app && npx expo start`
 1. press `a` (Android) or `i` (iOS)
 
 ----
 
 ## Run on Web 🕸️
 
-1. cd app && npx expo start
+(Same as expo)
+
+1. from root, run `cd app && npx expo start`
 1. press `w`
 
 > [!Note]
-> `worklet` related code might not work
+> `worklet` related code might not work in web mode
 
 > [!Note]
 > Can turn the app as [progressive web app](https://docs.expo.dev/guides/progressive-web-apps/) (PWA) for more advanced usage
@@ -35,36 +41,7 @@ React Native web (Expo) setup for pear desktop
 
 ## Run on Pear Desktop App 💻
 
-pear-expo export the web code (via react-native-web) to run in Pear Desktop App (which is an Electron-like environment)
-
-> [!Note]
-> `worklet` related code might not work
-
-Firstly need export web UI in `app/`:
-
-```sh
-cd app && npx expo export -p web
-```
-
-Then copy the `app/dist` folder to `pear/dist`
-
-```sh
-cd .. && cp -r app/dist pear/dist
-```
-
-In `pear/dist` need change the default import path in `pear/dist/index.html` from `/_expo` (absolute path) to `./_expo` (relative path)
-
-```sh
-sed -i "s@/_expo@./_expo@g" pear/dist/index.html
-```
-
-Then we open the pear desktop with command:
-
-```sh
-cd pear && pear dev
-```
-
-Then you can use react-native UI with pear desktop
+See [pear/README.md](pear/README.md)
 
 ## What's next 🛤️
 
