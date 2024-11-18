@@ -3,7 +3,7 @@
 pear-expo export the web code (via react-native-web) to run in Pear Desktop App (which is an Electron-like environment)
 
 > [!Note]
-> `worklet` related code might not work
+> `worklet` related code does not work directly in Pear desktop
 
 Firstly need export web UI in `app/`:
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "current bare-dev version:"
-bare-dev --version
+echo "current bare-pack version:"
+npx bare-pack --version
 
 # start compile bundles
-bare-dev bundle --out worklet/app.bundle.js worklet/app.cjs
+npx bare-pack --out worklet/app.bundle.js worklet/app.cjs
