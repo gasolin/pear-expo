@@ -1,5 +1,5 @@
 /* global Bare, BareKit */
-const { API_PING, API_REVERSE } = require('./api2')
+const { API_PING, API_REVERSE, API_BARE_PING } = require('./api2')
 // const BareAddon = require('bare-addon')
 
 Bare
@@ -23,3 +23,11 @@ const rpc = new BareKit.RPC((req) => {
       req.reply('Pong from Bare')
   }
 })
+
+// API test call from bare to UI
+let cnt = 0
+setInterval(() => {
+  const req = rpc.request(API_BARE_PING)
+  cnt++
+  req.send(`Bare call ${cnt}`)
+}, 9000)

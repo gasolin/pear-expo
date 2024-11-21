@@ -3,3 +3,4 @@
 
 export const API_PING = 'ping'
 export const API_REVERSE = 'reverse'
+export const API_BARE_PING = 'bare_ping'

@@ -5,10 +5,11 @@ import { getBackend } from '../lib/rpc'
 import useWorklet from '../hook/useWorklet'
 
 const BareApiContext = createContext(null)
+const noop = () => {}
 
-export const BareProvider = ({ children }) => {
+export const BareProvider = ({ children, rpcHandler = noop }) => {
   const [backend, setBackend] = useState(null)
-  const [worklet, rpc] = useWorklet()
+  const [worklet, rpc] = useWorklet(rpcHandler)
 
   useEffect(() => {
     if (!worklet) return
