@@ -5,7 +5,7 @@ import { rpcHandler } from './src/lib/rpc'
 
 export default function App() {
   return (
-    <BareProvider bareHandler={rpcHandler}>
+    <BareProvider rpcHandler={rpcHandler}>
       <HomeScreen/>
     </BareProvider>
   );

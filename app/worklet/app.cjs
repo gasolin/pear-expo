@@ -30,4 +30,4 @@ setInterval(() => {
   const req = rpc.request(API_BARE_PING)
   cnt++
   req.send(`Bare call ${cnt}`)
-}, 9000)
+}, 15000)
