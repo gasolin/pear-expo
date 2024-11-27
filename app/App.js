@@ -8,5 +8,5 @@ export default function App() {
     <BareProvider rpcHandler={rpcHandler}>
       <HomeScreen/>
     </BareProvider>
-  );
+  )
 }

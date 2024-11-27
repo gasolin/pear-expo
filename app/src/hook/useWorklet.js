@@ -45,9 +45,9 @@ const useWorklet = (callback = noReply) => {
         // Clean up the RPC instance if necessary
       }
     };
-  }, [initWorklet, initRPC, rpc]);
+  }, [initWorklet, initRPC, rpc])
 
-  return [worklet, rpc];
+  return [worklet, rpc]
 };
 
-export default useWorklet;
+export default useWorklet
