@@ -1,6 +1,6 @@
 import { useState, useCallback } from'react'
 import { StatusBar } from 'expo-status-bar'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native'
 
 import { useBackend } from '../component/BareProvider'
 
@@ -16,9 +16,9 @@ export const HomeScreen = () => {
     <View style={styles.container}>
       <Text>Open up app/App.js to start working on your app!</Text>
       <Text>Open worklet/app.cjs to start working on bare code.</Text>
-      <Pressable style={styles.button} onPress={handleAction}>
+      <TouchableOpacity style={styles.button} onPress={handleAction}>
         <Text style={styles.text}>Hello</Text>
-      </Pressable>
+      </TouchableOpacity>
       <Text>{response}</Text>
       <StatusBar style="auto" />
     </View>
