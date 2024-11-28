@@ -18,9 +18,10 @@ const rpc = new BareKit.RPC((req) => {
       break
     case API_PING:
     default:
-      // console.log(BareAddon.hello())
       console.log('Hello Bare')
       req.reply('Pong from Bare')
+      // console.log(BareAddon.hello())
+      // req.reply(BareAddon.hello())
   }
 })
 
