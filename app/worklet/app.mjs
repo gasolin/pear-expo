@@ -1,6 +1,6 @@
 /* global Bare, BareKit */
-const { API_PING, API_REVERSE, API_BARE_PING } = require('./api2')
-// const BareAddon = require('bare-addon')
+import { API_PING, API_REVERSE, API_BARE_PING } from './api'
+// import BareAddon from 'bare-addon'
 
 Bare
   .on('suspend', () => console.log('suspended'))
