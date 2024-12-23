@@ -2,8 +2,10 @@
 
 React Native web (Expo) setup for pear desktop
 
-> ![Note]
+> [!Note]
 > in current stage its not include hypercore related example
+
+> [!Note]
 > android/ios integration through react-native-bare-kit
 
 ## structure
