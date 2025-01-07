@@ -1,5 +1,6 @@
 import { useCallback, useState, useEffect } from 'react'
 import { Worklet } from 'react-native-bare-kit'
+import RPC from 'bare-rpc'
 
 const noReply = () => { /* No reply */ }
 
@@ -25,7 +26,7 @@ const useWorklet = (callback = noReply) => {
     if (!currentWorklet) return null
     try {
       if (!rpc) {
-        const newRPC = new currentWorklet.RPC(callback)
+        const newRPC = new RPC(currentWorklet.IPC, callback)
         setRPC(newRPC)
         return newRPC
       }

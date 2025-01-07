@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "expo.bare.pear"
     },
     "android": {
       "adaptiveIcon": {
@@ -32,7 +33,7 @@
         "expo-build-properties",
         {
           "android": {
-            "minSdkVersion": 31
+            "minSdkVersion": 28
           }
         }
       ]

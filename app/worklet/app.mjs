@@ -1,4 +1,5 @@
 /* global Bare, BareKit */
+import RPC from 'bare-rpc'
 import { API_PING, API_REVERSE, API_BARE_PING } from './api'
 // import BareAddon from 'bare-addon'
 
@@ -9,7 +10,7 @@ Bare
 
 const getTranslation = (text) => text?.split('').reverse().join('')
 
-const rpc = new BareKit.RPC((req) => {
+const rpc = new RPC(BareKit.IPC, (req) => {
   const text = req.data.toString()
   switch(req.command) {
     case API_REVERSE:

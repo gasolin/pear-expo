@@ -15,7 +15,7 @@ export const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text>Open up app/App.js to start working on your app!</Text>
-      <Text>Open worklet/app.cjs to start working on bare code.</Text>
+      <Text>Open worklet/app.mjs to start working on bare code.</Text>
       <TouchableOpacity style={styles.button} onPress={handleAction}>
         <Text style={styles.text}>Hello</Text>
       </TouchableOpacity>
