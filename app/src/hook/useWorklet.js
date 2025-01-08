@@ -2,23 +2,43 @@ import { useCallback, useState, useEffect } from 'react'
 import { Worklet } from 'react-native-bare-kit'
 import RPC from 'bare-rpc'
 
-const noReply = () => { /* No reply */ }
+const DEFAULT_CALLBACK = () => { /* No reply */ }
 
-const useWorklet = (callback = noReply) => {
+/**
+ * Custom hook to manage Worklet and RPC instances
+ * @param {Object} options - Configuration options
+ * @param {Function} [options.handler=DEFAULT_CALLBACK] - handler function for RPC communications
+ * @param {string} [options.bundle_name='/app.bundle'] - Name of the worklet bundle
+ * @returns {[Worklet | null, RPC | null]} Tuple containing worklet and RPC instances
+ * @throws {Error} When worklet initialization fails
+ * @example
+ * const [worklet, rpc] = useWorklet({
+ *   handler: (message) => console.log(message),
+ * })
+ */
+const useWorklet = ({
+  rpcHandler = DEFAULT_CALLBACK,
+  bundle_name = '/app.bundle',
+}) => {
   const [worklet, setWorklet] = useState(null)
-  const [rpc, setRPC] = useState(null);
+  const [rpc, setRPC] = useState(null)
 
   const initWorklet = useCallback(() => {
+    if (worklet) {
+      return worklet
+    }
+
     try {
-      if (!worklet) {
+      async function init() {
         const newWorklet = new Worklet()
+        await newWorklet.start(bundle_name, require('../../worklet/app.bundle'))
         setWorklet(newWorklet)
         return newWorklet
       }
-      return worklet
+      init()
     } catch (error) {
       console.error('Error initializing Worklet:', error)
-      return null;
+      return null
     }
   }, [worklet])
 
@@ -26,7 +46,7 @@ const useWorklet = (callback = noReply) => {
     if (!currentWorklet) return null
     try {
       if (!rpc) {
-        const newRPC = new RPC(currentWorklet.IPC, callback)
+        const newRPC = new RPC(currentWorklet.IPC, rpcHandler)
         setRPC(newRPC)
         return newRPC
       }
@@ -35,7 +55,7 @@ const useWorklet = (callback = noReply) => {
       console.error('Error initializing RPC:', error)
       return null
     }
-  }, [callback, rpc])
+  }, [rpc, rpcHandler])
 
   useEffect(() => {
     const currentWorklet = initWorklet()
