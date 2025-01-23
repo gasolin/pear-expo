@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect } from 'react'
+import { Platform } from "react-native"
 import { Worklet } from 'react-native-bare-kit'
 import RPC from 'bare-rpc'
 
@@ -31,7 +32,10 @@ const useWorklet = ({
     try {
       async function init() {
         const newWorklet = new Worklet()
-        await newWorklet.start(bundle_name, require('../../worklet/app.bundle'))
+        await newWorklet.start(bundle_name,
+          Platform.OS === "ios"
+          ? require("../../worklet/app-ios.bundle")
+          : require("../../worklet/app-android.bundle"))
         setWorklet(newWorklet)
         return newWorklet
       }

@@ -9,13 +9,13 @@ const noop = () => {}
 
 export const BareProvider = ({ children, rpcHandler = noop }) => {
   const [backend, setBackend] = useState(null)
-  const [worklet, rpc] = useWorklet({handler: rpcHandler})
+  const [_, rpc] = useWorklet({handler: rpcHandler})
 
   useEffect(() => {
-    if (!rpc || !worklet) return
-    const bareBackend = getBackend(rpc, worklet)
+    if (!rpc) return
+    const bareBackend = getBackend(rpc)
     setBackend(bareBackend)
-  }, [rpc, worklet])
+  }, [rpc])
 
   return (
     <BareApiContext.Provider value={backend}>
