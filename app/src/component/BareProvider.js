@@ -9,7 +9,7 @@ const noop = () => {}
 
 export const BareProvider = ({ children, rpcHandler = noop }) => {
   const [backend, setBackend] = useState(null)
-  const [_, rpc] = useWorklet({handler: rpcHandler})
+  const [_, rpc] = useWorklet({rpcHandler})
 
   useEffect(() => {
     if (!rpc) return
