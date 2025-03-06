@@ -1,5 +1,5 @@
 import { useCallback, useState, useEffect } from 'react'
-import { Platform } from "react-native"
+import { Platform } from 'react-native'
 import { Worklet } from 'react-native-bare-kit'
 import RPC from 'bare-rpc'
 
