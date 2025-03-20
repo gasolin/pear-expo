@@ -21,11 +21,15 @@ For common usage:
 ## Use Addon
 
 Addon is the native code that can be run in node or bare.
-Addon also need to be bundled. For common usage:
+Addon also need to be bundled.
+
+For common usage:
 
 1. put addon in root folder
 2. (if a local package) npm install ./addon.x.x.x.tgz
 3. call `./script/install_addon.sh` from root (need change `ADDON_NAME` if different) (do automatically with `yarn android` command)
 
 Reference
+- [bare-expo](https://github.com/holepunchto/bare-expo) official sample
 - [bare-pack](https://www.npmjs.com/package/bare-pack) - Bundle packing for Bare
+- [bare-addon](https://github.com/holepunchto/bare-addon#publishing)
