@@ -5,7 +5,9 @@
   - app.cjs - bare code entrypoint, written with Common JS (Node) format
 - src/hook/[useWorklet](app/src/hook/useWorklet.js) - react hook to access [https://github.com/holepunchto/react-native-bare-kit](react-native-bare-kit) APIs
 - src/lib/rpc - define bare function calls via rpc
-- bare-addon-1.0.0.tgz is compiled from [bare-addon](https://github.com/holepunchto/bare-addon) sample project, related install script is in [app/script](app/script)
+
+> [!Note]
+> bare-addon-1.0.0.tgz is compiled from [bare-addon](https://github.com/holepunchto/bare-addon) sample project, related install script is in [app/script](app/script)
 
 ## Overview
 
@@ -17,6 +19,12 @@ For common usage:
 
 1. write bare runtime code in `worklet/` and follow the Common JS pattern (Node JS), the entrypoint is `worklet/app.cjs`.
 2. To run bare code with the React native UI, we'll bundle codes under `worklet/` by call `./script/bundle_worklet.sh` from root. (which is automatically run with `yarn android` command)
+
+## Run
+
+To test this chat app, run `npm run ios` or `npm run android`
+
+`npm run ios` or `npm run android`
 
 ## Use Addon
 
