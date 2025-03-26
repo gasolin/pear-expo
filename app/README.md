@@ -18,13 +18,11 @@ Pear/Bare code is run through a separate process (like web worker) called `workl
 For common usage:
 
 1. write bare runtime code in `worklet/` and follow the Common JS pattern (Node JS), the entrypoint is `worklet/app.cjs`.
-2. To run bare code with the React native UI, we'll bundle codes under `worklet/` by call `./script/bundle_worklet.sh` from root. (which is automatically run with `yarn android` command)
+2. To run bare code with the React native UI, we'll bundle codes under `worklet/` by call `yarn bundle` from root. (which is automatically run with `yarn [OS]` command as below)
 
 ## Run
 
-To test this chat app, run `npm run ios` or `npm run android`
-
-`npm run ios` or `npm run android`
+To test this chat app, run `yarn ios` or `yarn android`
 
 ## Use Addon
 

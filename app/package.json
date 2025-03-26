@@ -4,10 +4,11 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "bundle": "./script/bundle_worklet.sh && ./script/install_addon.sh",
     "android": "npm run bundle && expo run:android",
     "ios": "npm run bundle && expo run:ios",
-    "web": "expo start --web",
+    "bundle": "npm run bundle-ios && npm run bundle-android && ./script/install_addon.sh",
+    "bundle-ios": "npx bare-pack  --linked --out worklet/app-android.bundle.js worklet/app.mjs --target ios-arm64 --target ios-arm64-simulator --target ios-x64-simulator",
+    "bundle-android": "npx bare-pack  --linked --out worklet/app-android.bundle.js worklet/app.mjs --target android-arm64 --target android-ia32 --target android-x64",
     "andlog": "adb logcat '*:S bare:*'",
     "ioslog": "log stream --predicate \"subsystem == 'bare'\" --level debug"
   },
