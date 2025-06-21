@@ -13,18 +13,18 @@
     "ioslog": "log stream --predicate \"subsystem == 'bare'\" --level debug"
   },
   "dependencies": {
-    "@expo/metro-runtime": "~4.0.1",
+    "@expo/metro-runtime": "~5.0.4",
     "bare-rpc": "0.1.4",
     "events": "^3.3.0",
-    "expo": "~52.0.46",
-    "expo-build-properties": "^0.13.3",
-    "expo-status-bar": "~2.0.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-native": "0.76.9",
+    "expo": "^53.0.0",
+    "expo-build-properties": "~0.14.6",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.4",
     "react-native-bare-kit": "^0.6.21",
-    "react-native-safe-area-context": "4.12.0",
-    "react-native-web": "~0.19.13"
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-web": "^0.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1"
